@@ -24,6 +24,10 @@ export default function TabLayout() {
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
         headerShown: true,
+        tabBarStyle: {
+          backgroundColor: "black",
+        },
+
         /**
          * Add hamburger menu button to all tab headers by default
          * This is placed in screenOptions to avoid repetition across screens
@@ -52,17 +56,27 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="check-in"
         options={{
-          // Override to remove menu button for this specific screen
-          headerLeft: () => null,
-          title: "Explore",
+          title: "Check In",
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon
-              name={focused ? "code-slash" : "code-slash-outline"}
+              name={focused ? "checkmark-circle" : "checkmark-circle-outline"}
               color={color}
             />
           ),
+        }}
+      />
+      <Tabs.Screen
+        name="weekly"
+        options={{
+          title: "Weekly Survey",
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon
+              name={focused ? "clipboard" : "clipboard-outline"}
+              color={color}
+            />
+          )
         }}
       />
     </Tabs>

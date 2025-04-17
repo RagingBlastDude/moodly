@@ -2,10 +2,10 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { Slot } from "expo-router";
 import { StyleSheet, Image, Text, View } from "react-native";
 
-export default function TabTwoScreen() {
+export default function WeeklySurvey() {
   return (
     <View style={{ flex: 1 }}>
-      <Text>EXPLORE SCREEN</Text>
+      <Text>WeeklySurvey</Text>
     </View>
   );
 }

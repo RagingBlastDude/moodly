@@ -61,6 +61,19 @@ const TabsIndexScreen = () => {
       >
         <Text className="text-white font-semibold text-base">Logout</Text>
       </Pressable>
+
+      {/* Check In button (daily) */}
+      <Pressable
+        onPress={() => router.push("/check-in")}
+        className="bg-blue-500 px-6 py-3 rounded-lg mt-4 active:bg-blue-600"
+      >
+        <Text className="text-white font-semibold text-base">Check In</Text>  
+      </Pressable>
+
+      {/* TODO: Weekly Health Survey button (if due)*/}
+
+      {/* TODO: Mood trend mini-graph (If enough time)*/}
+
     </View>
   );
 };
