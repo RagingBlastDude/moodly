@@ -85,7 +85,7 @@ Moodly enables:
 ## 📸 Screenshots
 
 ### 🏠 Home Page
-The landing screen after logging in, showing a summary of the user's recent check-ins and prompts for daily or weekly surveys.
+The landing screen after logging in, showing prompts for daily or weekly surveys.
 
 ![Home Page](https://github.com/user-attachments/assets/5aa1236d-3f4f-49d2-972f-5097f39ac458)
 
@@ -104,6 +104,12 @@ A survey-based screen using clinically validated questions to assess anxiety and
 ![Weekly Check-In 1](https://github.com/user-attachments/assets/4020a0bc-8c63-4e55-821e-7b5c2791abf0)
 ![Weekly Check-In 2](https://github.com/user-attachments/assets/3e17b813-e363-4dee-ab0b-1460080e07a6)
 
+---
+
+### 🔔 Notifications
+Daily reminders to encourage users to reflect on their mood and complete check-ins regularly.
+
+![Notifications](https://github.com/user-attachments/assets/7262d95e-b109-4ca2-b2f2-dd51bc7f185d)
 
 ## 🧾 License
 This project is licensed under the MIT License. See the LICENSE file for details.
