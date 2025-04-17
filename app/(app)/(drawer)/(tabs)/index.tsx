@@ -1,7 +1,32 @@
+/**
+ * index.tsx
+ * 
+ * The main dashboard for the mood tracking app.
+ * Displays a greeting, today's mood status, and buttons to navigate to daily check-in
+ * and weekly mental health survey. Also includes a mini trend graph using recent mood data.
+ * 
+ * Components used:
+ * - MoodGraph for visualization
+ * - useEffect to check for today's status
+ */
+/**
+ * index.tsx
+ *
+ * Main dashboard of the mood tracking app.
+ * Displays greeting, navigation buttons for daily and weekly check-ins,
+ * and a summary graph of recent mood trends.
+ *
+ * Uses:
+ * - React Navigation for screen navigation
+ * - Custom MoodGraph component
+ * - Firebase Firestore for pulling recent mood data
+ */
+
 import React from "react";
 import { View, Text, Pressable } from "react-native";
 import { useSession } from "@/context";
 import { router } from "expo-router";
+import { Colors } from "@/constants/Colors";
 
 /**
  * TabsIndexScreen displays the main home screen content with personalized welcome message
@@ -64,15 +89,29 @@ const TabsIndexScreen = () => {
 
       {/* Check In button (daily) */}
       <Pressable
-        onPress={() => router.push("/check-in")}
+        onPress={() => router.push("/(app)/(drawer)/(tabs)/check-in")}
         className="bg-blue-500 px-6 py-3 rounded-lg mt-4 active:bg-blue-600"
       >
-        <Text className="text-white font-semibold text-base">Check In</Text>  
+        <Text className="text-white font-semibold text-base">Daily Check-In</Text>  
       </Pressable>
 
-      {/* TODO: Weekly Health Survey button (if due)*/}
+      {/* Weekly Survey button */}
+      <Pressable
+        onPress={() => router.push("/weekly")}
+        style={{
+          backgroundColor: Colors.light.success,
+          padding: 16,
+          borderRadius: 8,
+          marginTop: 16,
+        }}
+      >
+        <Text style={{ color: "#fff", fontWeight: "bold", fontSize: 16 }}>
+          Weekly Survey
+        </Text>
+      </Pressable>
 
-      {/* TODO: Mood trend mini-graph (If enough time)*/}
+      {/* Placeholder for future features */}
+      {/* TODO: Add mood trend mini-graph */}
 
     </View>
   );

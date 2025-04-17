@@ -3,7 +3,7 @@
  * This module handles the setup of Firebase services for the application.
  * @module
  */
-import { initializeApp } from "firebase/app";
+import { initializeApp, getApps, getApp } from "firebase/app";
 
 // IGNORE IMPORT ERROR, this is a valid import, still investigating
 import { initializeAuth, getReactNativePersistence } from "firebase/auth";
@@ -34,7 +34,7 @@ const firebaseConfig = {
  * Initialize Firebase application instance
  * @type {FirebaseApp}
  */
-const app = initializeApp(firebaseConfig);
+const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApp();
 
 /**
  * Initialize Firebase Authentication service

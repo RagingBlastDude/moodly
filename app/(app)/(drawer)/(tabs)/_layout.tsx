@@ -76,7 +76,7 @@ export default function TabLayout() {
               name={focused ? "clipboard" : "clipboard-outline"}
               color={color}
             />
-          )
+          ),
         }}
       />
     </Tabs>
