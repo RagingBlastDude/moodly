@@ -114,6 +114,11 @@ Daily reminders to encourage users to reflect on their mood and complete check-i
 
 ![Notifications](https://github.com/user-attachments/assets/7262d95e-b109-4ca2-b2f2-dd51bc7f185d)
 
+## 🙏 Acknowledgements
+
+- This project was bootstrapped using the [firebase-exporouter-app](https://github.com/aaronksaunders/firebase-exporouter-app) template by [@aaronksaunders](https://github.com/aaronksaunders).
+- Special thanks to [ChatGPT (model: gpt-4o)](https://openai.com/chatgpt) for assisting with code generation, documentation, and writing guidance.
+
 ## 🧾 License
 This project is licensed under the MIT License. See the LICENSE file for details.
 
