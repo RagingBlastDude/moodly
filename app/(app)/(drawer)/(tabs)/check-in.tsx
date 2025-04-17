@@ -50,13 +50,20 @@ const CheckIn = () => {
   };
 
   const handleSubmit = async () => {
-    if (user) {
+    if (!user) {
+      alert("User not authenticated.");
+      return;
+    }
+  
+    console.log("Submitting daily check-in:", moodValues);
+  
+    try {
       await saveDailyCheckIn(user.uid, moodValues);
       alert("Mood check-in saved!");
-    } else {
-      alert("User not authenticated.");
+    } catch (err) {
+      console.error("❌ Error saving check-in:", err);
+      alert("Error saving your mood check-in.");
     }
-    alert("Submit functionality disabled for testing.");
   };
 
   return (

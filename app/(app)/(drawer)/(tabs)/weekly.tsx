@@ -56,13 +56,20 @@ const WeeklySurvey = () => {
   };
 
   const handleSubmit = async () => {
-    if (user) {
+    if (!user) {
+      alert("User not authenticated.");
+      return;
+    }
+  
+    console.log("Submitting weekly survey:", phq9Answers, gad7Answers);
+  
+    try {
       await saveWeeklySurvey(user.uid, phq9Answers, gad7Answers);
       alert("Weekly survey submitted!");
-    } else {
-      alert("User not authenticated.");
+    } catch (err) {
+      console.error("❌ Error saving weekly survey:", err);
+      alert("Error submitting weekly survey.");
     }
-    alert("Submit functionality disabled for testing.");
   };
 
   const renderQuestion = (question: string, index: number, isPhq9: boolean) => (
