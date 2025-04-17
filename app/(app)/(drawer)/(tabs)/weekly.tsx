@@ -110,8 +110,8 @@ const WeeklySurvey = () => {
   );
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.title}>Weekly Survey</Text>
+    <ScrollView contentContainerStyle={[styles.container, { backgroundColor: "#FAF8F5" /* Cream White */ }]}>
+      <Text style={[styles.title, { color: "#3B3B3B" /* Soft Charcoal */ }]}>Weekly Survey</Text>
       {currentStep === 0 &&
         phq9Questions.map((question, index) =>
           renderQuestion(question, index, true)
@@ -122,17 +122,41 @@ const WeeklySurvey = () => {
         )}
       <View style={styles.navigationContainer}>
         {currentStep > 0 && (
-          <Pressable style={styles.navButton} onPress={handleBack}>
-            <Text style={styles.navButtonText}>Back</Text>
+          <Pressable
+            style={[
+              styles.navButton,
+              { backgroundColor: "#F9CB61" /* Warm Yellow */ },
+            ]}
+            onPress={handleBack}
+          >
+            <Text style={[styles.navButtonText, { color: "#3B3B3B" /* Soft Charcoal */ }]}>
+              Back
+            </Text>
           </Pressable>
         )}
         {currentStep < 1 ? (
-          <Pressable style={styles.navButton} onPress={handleNext}>
-            <Text style={styles.navButtonText}>Next</Text>
+          <Pressable
+            style={[
+              styles.navButton,
+              { backgroundColor: "#F9CB61" /* Warm Yellow */ },
+            ]}
+            onPress={handleNext}
+          >
+            <Text style={[styles.navButtonText, { color: "#3B3B3B" /* Soft Charcoal */ }]}>
+              Next
+            </Text>
           </Pressable>
         ) : (
-          <Pressable style={styles.submitButton} onPress={handleSubmit}>
-            <Text style={styles.submitButtonText}>Submit</Text>
+          <Pressable
+            style={[
+              styles.submitButton,
+              { backgroundColor: "#A58DCE" /* Soothing Purple */ },
+            ]}
+            onPress={handleSubmit}
+          >
+            <Text style={[styles.submitButtonText, { color: "#FAF8F5" /* Cream White */ }]}>
+              Submit
+            </Text>
           </Pressable>
         )}
       </View>
@@ -158,6 +182,7 @@ const styles = StyleSheet.create({
   questionText: {
     fontSize: 16,
     marginBottom: 8,
+    color: "#3B3B3B" /* Soft Charcoal */,
   },
   optionsContainer: {
     flexDirection: "row",
@@ -166,18 +191,18 @@ const styles = StyleSheet.create({
   optionButton: {
     padding: 12,
     borderWidth: 1,
-    borderColor: "#ccc",
+    borderColor: "#A58DCE" /* Soothing Purple */,
     borderRadius: 8,
     alignItems: "center",
     justifyContent: "center",
     width: 50,
   },
   selectedOption: {
-    backgroundColor: "#0a7ea4",
-    borderColor: "#0a7ea4",
+    backgroundColor: "#A58DCE" /* Soothing Purple */,
+    borderColor: "#A58DCE" /* Soothing Purple */,
   },
   optionText: {
-    color: "#333",
+    color: "#3B3B3B" /* Soft Charcoal */,
   },
   navigationContainer: {
     flexDirection: "row",
@@ -185,21 +210,17 @@ const styles = StyleSheet.create({
     marginTop: 16,
   },
   navButton: {
-    backgroundColor: "#ccc",
     padding: 12,
     borderRadius: 8,
   },
   navButtonText: {
-    color: "#333",
     fontWeight: "bold",
   },
   submitButton: {
-    backgroundColor: "#0a7ea4",
     padding: 12,
     borderRadius: 8,
   },
   submitButtonText: {
-    color: "#fff",
     fontWeight: "bold",
   },
 });

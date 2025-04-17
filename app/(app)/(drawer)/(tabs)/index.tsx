@@ -12,10 +12,11 @@
  */
 
 import React from "react";
-import { View, Text, Pressable } from "react-native";
+import { View, Text, Pressable, Image } from "react-native";
 import { useSession } from "@/context";
 import { router } from "expo-router";
 import { Colors } from "@/constants/Colors";
+import Logo from "@/assets/images/Moodly-Icon.png"; // Adjusted to use the alias "@/assets"
 
 /**
  * TabsIndexScreen displays the main home screen content with personalized welcome message
@@ -54,16 +55,20 @@ const TabsIndexScreen = () => {
   // ============================================================================
   
   return (
-    <View className="flex-1 justify-center items-center p-4">
+    <View className="flex-1 justify-center items-center p-4" style={{ backgroundColor: "#FAF8F5" /* Cream White */ }}>
       {/* Welcome Section */}
       <View className="items-center mb-8">
-        <Text className="text-xl font-bold text-gray-800 mb-2">
-          Welcome back,
+        <Image
+          source={Logo}
+          style={{ width: 100, height: 100, marginBottom: 20 }}
+        />
+        <Text className="text-xl font-bold" style={{ color: "#3B3B3B" /* Soft Charcoal */ }}>
+          Welcome to Moodly,
         </Text>
-        <Text className="text-2xl font-bold text-blue-600">
+        <Text className="text-2xl font-bold" style={{ color: "#A58DCE" /* Soothing Purple */ }}>
           {displayName}
         </Text>
-        <Text className="text-sm text-gray-500 mt-2">
+        <Text className="text-sm mt-2" style={{ color: "#3B3B3B" /* Soft Charcoal */ }}>
           {user?.email}
         </Text>
       </View>
@@ -71,37 +76,51 @@ const TabsIndexScreen = () => {
       {/* Logout Button */}
       <Pressable
         onPress={handleLogout}
-        className="bg-red-500 px-6 py-3 rounded-lg active:bg-red-600"
+        style={{
+          backgroundColor: "#F9CB61" /* Warm Yellow */,
+          paddingHorizontal: 24,
+          paddingVertical: 12,
+          borderRadius: 8,
+        }}
       >
-        <Text className="text-white font-semibold text-base">Logout</Text>
+        <Text style={{ color: "#3B3B3B" /* Soft Charcoal */, fontWeight: "bold", fontSize: 16 }}>
+          Logout
+        </Text>
       </Pressable>
 
       {/* Check In button (daily) */}
       <Pressable
         onPress={() => router.push("/(app)/(drawer)/(tabs)/check-in")}
-        className="bg-blue-500 px-6 py-3 rounded-lg mt-4 active:bg-blue-600"
+        style={{
+          backgroundColor: "#A58DCE" /* Soothing Purple */,
+          paddingHorizontal: 24,
+          paddingVertical: 12,
+          borderRadius: 8,
+          marginTop: 16,
+        }}
       >
-        <Text className="text-white font-semibold text-base">Daily Check-In</Text>  
+        <Text style={{ color: "#FAF8F5" /* Cream White */, fontWeight: "bold", fontSize: 16 }}>
+          Daily Check-In
+        </Text>  
       </Pressable>
 
       {/* Weekly Survey button */}
       <Pressable
         onPress={() => router.push("/weekly")}
         style={{
-          backgroundColor: Colors.light.success,
+          backgroundColor: "#F9CB61" /* Warm Yellow */,
           padding: 16,
           borderRadius: 8,
           marginTop: 16,
         }}
       >
-        <Text style={{ color: "#fff", fontWeight: "bold", fontSize: 16 }}>
+        <Text style={{ color: "#3B3B3B" /* Soft Charcoal */, fontWeight: "bold", fontSize: 16 }}>
           Weekly Survey
         </Text>
       </Pressable>
 
       {/* Placeholder for future features */}
       {/* TODO: Add mood trend mini-graph */}
-
     </View>
   );
 };

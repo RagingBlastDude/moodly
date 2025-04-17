@@ -49,13 +49,13 @@ export default function SignUp() {
   // ============================================================================
 
   return (
-    <View className="flex-1 justify-center items-center p-4">
+    <View className="flex-1 justify-center items-center p-4" style={{ backgroundColor: "#FAF8F5" /* Cream White */ }}>
       {/* Welcome Section */}
       <View className="items-center mb-8">
-        <Text className="text-2xl font-bold text-gray-800 mb-2">
+        <Text className="text-2xl font-bold" style={{ color: "#3B3B3B" /* Soft Charcoal */ }}>
           Create Account
         </Text>
-        <Text className="text-sm text-gray-500">
+        <Text className="text-sm" style={{ color: "#3B3B3B" /* Soft Charcoal */ }}>
           Sign up to get started
         </Text>
       </View>
@@ -63,7 +63,7 @@ export default function SignUp() {
       {/* Form Section */}
       <View className="w-full max-w-[300px] space-y-4 mb-8">
         <View>
-          <Text className="text-sm font-medium text-gray-700 mb-1 ml-1">
+          <Text className="text-sm font-medium" style={{ color: "#3B3B3B" /* Soft Charcoal */ }}>
             Name
           </Text>
           <TextInput
@@ -72,12 +72,19 @@ export default function SignUp() {
             onChangeText={setName}
             textContentType="name"
             autoCapitalize="words"
-            className="w-full p-3 border border-gray-300 rounded-lg text-base bg-white"
+            style={{
+              backgroundColor: "#FAF8F5" /* Cream White */,
+              borderColor: "#A58DCE" /* Soothing Purple */,
+              borderWidth: 1,
+              borderRadius: 8,
+              padding: 12,
+              color: "#3B3B3B" /* Soft Charcoal */,
+            }}
           />
         </View>
 
         <View>
-          <Text className="text-sm font-medium text-gray-700 mb-1 ml-1">
+          <Text className="text-sm font-medium" style={{ color: "#3B3B3B" /* Soft Charcoal */ }}>
             Email
           </Text>
           <TextInput
@@ -87,12 +94,19 @@ export default function SignUp() {
             textContentType="emailAddress"
             keyboardType="email-address"
             autoCapitalize="none"
-            className="w-full p-3 border border-gray-300 rounded-lg text-base bg-white"
+            style={{
+              backgroundColor: "#FAF8F5" /* Cream White */,
+              borderColor: "#A58DCE" /* Soothing Purple */,
+              borderWidth: 1,
+              borderRadius: 8,
+              padding: 12,
+              color: "#3B3B3B" /* Soft Charcoal */,
+            }}
           />
         </View>
 
         <View>
-          <Text className="text-sm font-medium text-gray-700 mb-1 ml-1">
+          <Text className="text-sm font-medium" style={{ color: "#3B3B3B" /* Soft Charcoal */ }}>
             Password
           </Text>
           <TextInput
@@ -101,7 +115,14 @@ export default function SignUp() {
             onChangeText={setPassword}
             secureTextEntry
             textContentType="newPassword"
-            className="w-full p-3 border border-gray-300 rounded-lg text-base bg-white"
+            style={{
+              backgroundColor: "#FAF8F5" /* Cream White */,
+              borderColor: "#A58DCE" /* Soothing Purple */,
+              borderWidth: 1,
+              borderRadius: 8,
+              padding: 12,
+              color: "#3B3B3B" /* Soft Charcoal */,
+            }}
           />
         </View>
       </View>
@@ -109,19 +130,27 @@ export default function SignUp() {
       {/* Sign Up Button */}
       <Pressable
         onPress={handleSignUpPress}
-        className="bg-blue-600 w-full max-w-[300px] py-3 rounded-lg active:bg-blue-700"
+        style={{
+          backgroundColor: "#A58DCE" /* Soothing Purple */,
+          paddingVertical: 12,
+          borderRadius: 8,
+          width: "100%",
+          maxWidth: 300,
+        }}
       >
-        <Text className="text-white font-semibold text-base text-center">
+        <Text style={{ color: "#FAF8F5" /* Cream White */, fontWeight: "bold", textAlign: "center" }}>
           Sign Up
         </Text>
       </Pressable>
 
       {/* Sign In Link */}
       <View className="flex-row items-center mt-6">
-        <Text className="text-gray-600">Already have an account?</Text>
+        <Text style={{ color: "#3B3B3B" /* Soft Charcoal */ }}>Already have an account?</Text>
         <Link href="/sign-in" asChild>
-          <Pressable className="ml-2">
-            <Text className="text-blue-600 font-semibold">Sign In</Text>
+          <Pressable>
+            <Text style={{ color: "#A58DCE" /* Soothing Purple */, fontWeight: "bold", marginLeft: 8 }}>
+              Sign In
+            </Text>
           </Pressable>
         </Link>
       </View>

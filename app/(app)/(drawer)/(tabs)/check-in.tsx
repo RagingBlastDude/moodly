@@ -28,7 +28,6 @@ const emotions = [
   { label: "Energetic", emoji: "⚡" },
 ];
 
-
 const scheduleDailyNotification = async () => {
   await Notifications.cancelAllScheduledNotificationsAsync(); // optional: prevent duplicates
 
@@ -73,8 +72,8 @@ const CheckIn = () => {
   };
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.title}>Daily Mood Check-In</Text>
+    <ScrollView contentContainerStyle={[styles.container, { backgroundColor: "#FAF8F5" /* Cream White */ }]}>
+      <Text style={[styles.title, { color: "#3B3B3B" /* Soft Charcoal */ }]}>Daily Mood Check-In</Text>
       {emotions.map((emotion) => (
         <MoodSlider
           key={emotion.label}
@@ -84,8 +83,16 @@ const CheckIn = () => {
           onChange={(value) => handleSliderChange(emotion.label, value)}
         />
       ))}
-      <Pressable style={styles.submitButton} onPress={handleSubmit}>
-        <Text style={styles.submitText}>Submit</Text>
+      <Pressable
+        style={[
+          styles.submitButton,
+          { backgroundColor: "#A58DCE" /* Soothing Purple */ },
+        ]}
+        onPress={handleSubmit}
+      >
+        <Text style={[styles.submitText, { color: "#FAF8F5" /* Cream White */ }]}>
+          Submit
+        </Text>
       </Pressable>
     </ScrollView>
   );
@@ -104,14 +111,12 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   submitButton: {
-    backgroundColor: "#0a7ea4",
     padding: 16,
     borderRadius: 8,
     alignItems: "center",
     marginTop: 16,
   },
   submitText: {
-    color: "#fff",
     fontSize: 16,
     fontWeight: "bold",
   },
