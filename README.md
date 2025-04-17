@@ -29,6 +29,7 @@ These scales are widely used in psychology to assess emotional well-being, depre
 
 ### Firebase login screen 
 app/ ├── sign-in.tsx 
+
 app/ ├── sign-up.tsx 
 
 ### Daily mood tracking screen (PANAS) 
@@ -49,16 +50,18 @@ app / (app) / (drawer) / (tabs) / ├── index.tsx
    cd moodly
 
 2. **Install dependencies**
+   ```bash
    npm install
 
 3. **Set up Firebase**
    Create a ``.env`` file with your credentials:
+   ```.env
    EXPO_PUBLIC_FIREBASE_API_KEY=
    EXPO_PUBLIC_FIREBASE_PROJECT_ID=
 
 4. **Launch the app**
+   ```bash
    npx expo start
-
 
 ## 📈 Potential Study Design
 Moodly enables:
