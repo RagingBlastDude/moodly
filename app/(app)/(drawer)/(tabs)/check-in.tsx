@@ -1,17 +1,5 @@
 /**
  * check-in.tsx
- * 
- * Displays a list of 5–10 emotion items from the PANAS scale.
- * Each emotion is paired with a slider or emoji-based input to record intensity (1–5).
- * Data is submitted to Firestore under users/{userId}/dailyCheckIns/{YYYY-MM-DD}.
- * 
- * Features:
- * - Dynamic list of emotion items
- * - Local state tracking slider values
- * - Submit handler with Firestore write
- */
-/**
- * check-in.tsx
  *
  * Renders a list of selected emotions from PANAS using sliders.
  * Allows users to quickly check in on their mood with ratings from 1 to 5.
@@ -30,6 +18,7 @@ import { View, Text, Pressable, StyleSheet, ScrollView } from "react-native";
 import { MoodSlider } from "@/components/MoodSlider";
 import { saveDailyCheckIn } from "@/lib/firestore-service";
 import { useSession } from "@/context";
+import * as Notifications from "expo-notifications";
 
 const emotions = [
   { label: "Excited", emoji: "😄" },
@@ -38,6 +27,23 @@ const emotions = [
   { label: "Sad", emoji: "😢" },
   { label: "Energetic", emoji: "⚡" },
 ];
+
+
+const scheduleDailyNotification = async () => {
+  await Notifications.cancelAllScheduledNotificationsAsync(); // optional: prevent duplicates
+
+  await Notifications.scheduleNotificationAsync({
+    content: {
+      title: "🧠 Mood Check-In",
+      body: "How are you feeling today? Tap to record your mood.",
+    },
+    trigger: {
+      hour: 20, // 8:00 PM local time
+      minute: 0,
+      repeats: true,
+    },
+  });
+};
 
 const CheckIn = () => {
   const { user } = useSession();

@@ -1,16 +1,5 @@
 /**
  * index.tsx
- * 
- * The main dashboard for the mood tracking app.
- * Displays a greeting, today's mood status, and buttons to navigate to daily check-in
- * and weekly mental health survey. Also includes a mini trend graph using recent mood data.
- * 
- * Components used:
- * - MoodGraph for visualization
- * - useEffect to check for today's status
- */
-/**
- * index.tsx
  *
  * Main dashboard of the mood tracking app.
  * Displays greeting, navigation buttons for daily and weekly check-ins,

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { View, Text, Pressable, StyleSheet, ScrollView } from "react-native";
 import { saveWeeklySurvey } from "@/lib/firestore-service";
 import { useSession } from "@/context";
+import * as Notifications from "expo-notifications";
 
 const phq9Questions = [
   "Little interest or pleasure in doing things",
@@ -24,6 +25,21 @@ const gad7Questions = [
   "Becoming easily annoyed or irritable",
   "Feeling afraid as if something awful might happen",
 ];
+
+const scheduleWeeklyNotification = async () => {
+  await Notifications.scheduleNotificationAsync({
+    content: {
+      title: "📋 Weekly Survey",
+      body: "Complete your weekly PHQ-9 and GAD-7 check-in.",
+    },
+    trigger: {
+      weekday: 7, // Sunday
+      hour: 18,
+      minute: 0,
+      repeats: true,
+    },
+  });
+};
 
 const WeeklySurvey = () => {
   const { user } = useSession();
